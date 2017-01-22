@@ -1,0 +1,345 @@
+@charset "utf-8";
+
+@import url("jquery/jquery.ui.all.css");
+/*-----------------------------------------------------------------------*/
+/* リセット                                                                                                                                                                             */
+/*-----------------------------------------------------------------------*/
+html{background:#ffffff;color:#333333;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+li{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym {border:0;font-variant:normal;}
+sup {vertical-align:text-top;}
+sub {vertical-align:text-bottom;}
+input,textarea,select{font-family:inherit;font-size:100%;font-weight:inherit;}
+legend{color:#000;}
+body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}
+table {font-size:12px;font:100%;}
+pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
+
+/*-----------------------------------------------------------------------*/
+/* フォント                                                              */
+/*-----------------------------------------------------------------------*/
+body{
+	height: 100%;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.5;
+	background-color: #ffffff;
+}
+/*-----------------------------------------------------------------------*/
+/* テーブル：CSS                                                            */
+/*-----------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------*/
+/* container                                                             */
+/*-----------------------------------------------------------------------*/
+#container { 
+	width: 782px;
+	background: #FFFFFF;
+	margin: 0 auto;
+	border-top: 1px solid #d1d1d1;
+	text-align: left;
+	height:100%;
+	position: relative;
+}
+body > #container {
+    height: auto;
+}
+table.admintable{
+	border:#cccccc solid 1px;
+	margin:0px,0px,0px,5px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+table.admintable th{
+	padding:3px;
+	background:#faf7eb;
+	border-bottom:#cccccc dotted 1px;
+	border-right:#cccccc solid 1px;
+	vertical-align:middle;
+	text-align:left;
+	font-weight:bold;
+}
+table.admintable td{
+	padding:3px;
+	border-bottom:#cccccc dotted 1px;
+	border-right:#cccccc solid 1px;
+	word-break:break-all;
+}
+
+table.adminlisttable{
+	margin:0px,0px,0px,5px;
+	clear:both;
+	width:99%;
+	border:#cccccc solid 1px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+table.adminlisttable th{
+	padding:5px;
+	background:#faf7eb;
+	border-bottom:#cccccc solid 1px;
+	border-right:#cccccc dotted 1px;
+	vertical-align:middle;
+	text-align:center;
+	font-weight:bold;
+}
+table.adminlisttable td {
+	padding:5px 0px 5px 0px;
+	border-bottom:#cccccc solid 1px;
+	border-right:#cccccc dotted 1px;
+	vertical-align:middle;
+	text-align:center;
+	word-break:break-all;
+	}
+#tbl_search_result {
+	margin:0px,0px,0px,5px;
+	clear:both;
+	width:99%;
+	border:#cccccc solid 1px;
+	}
+
+
+	
+	h2{
+	font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+	font-weight: 400;
+	margin:0px 3px 5px 5px;
+	padding:15px 0px 0px 0px;
+	border-bottom:#af9b8b solid 1px;
+	color:#4a290c;
+	font-size:200%;
+}
+
+.outputText {
+	color: #0000FF;
+}
+
+.displayColor
+{
+    font-size: 100%;
+    color: #000000;
+    border: 1px solid gray;
+    height:21px;
+    vertical-align:middle;
+}
+
+.displayColorNumber
+{
+    font-size: 100%;
+    color: #000000;
+    border: 1px solid gray;
+    height:16px;
+    text-align: right;
+}
+
+.infoTable
+{
+	background-color: #A0A0A0;
+	empty-cells: show;
+}
+
+.listDivScroll
+{
+	position:relative;
+	width:970px;
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+
+.listDivScrollp
+{
+	position:relative;
+	width:780px;
+	height:196px;
+	overflow-x:scroll;
+	overflow-y:scroll;
+}
+
+.tableHeader
+{
+    font-weight: lighter;
+    font-size: 100%;
+	text-align: center;
+    color: #333333;
+    background-color: #D6D7D6;
+    height: 21px;
+}
+
+.tableRow
+{
+	vertical-align: middle;
+    font-size: 100%;
+    color: #000000;
+    background-color: #F6F6F6;
+    height: 21px;
+}
+
+.tableRowZebra
+{
+	vertical-align: middle;
+    font-size: 100%;
+    color: #000000;
+    background-color: #FFFFFF;
+    height: 15px;
+}
+
+.dataIcon
+{
+text-align:center;
+}
+
+.required
+{
+	font-size: 100%;
+	line-height: 70%;
+	vertical-align: top;
+    color: #FF6600;
+}
+
+.tableName1
+{
+	padding-right: 2px;
+	padding-left: 2px;
+	font-weight: bold;
+	font-size: 120%;
+	padding-bottom: 2px;
+	color: #000000;
+	padding-top: 2px;
+	background-color: #C8F9FF;
+	text-align: left;
+	border-bottom: #FFFFFF 1px solid;
+}
+
+.comment {
+	font-size: 100%;
+	color: #FF0000;
+}
+
+.common
+{
+	background-color: #F2F2F2;
+}
+
+.tableRowRed
+{
+	background-color: #FF0000;
+}
+
+.tableRowGreen
+{
+	background-color: #00FF00;
+}
+/* button */
+table.buttontable{
+	margin:0px,0px,0px,5px;
+	clear:both;
+	width:99%;
+	border:#cccccc solid 0px;
+}
+
+/*　メンバー構成画面用 */
+table.toptable{
+	margin:0px,0px,0px,5px;
+	width:774px;
+	border:#cccccc solid 0px;
+}
+td.toptable{
+	background:#faf7eb;
+	border-top:#cccccc solid 1px;
+	border-left:#cccccc solid 1px;
+	border-right:#cccccc solid 1px;
+}
+table.centerlisttable{
+	margin:0px,0px,0px,0px;
+	clear:both;
+	width:100%;
+	border:#cccccc solid 1px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+table.centerlisttable th{
+	padding:5px;
+	background:#faf7eb;
+	border-bottom:#cccccc solid 1px;
+	border-right:#cccccc solid 1px;
+	vertical-align:middle;
+	text-align:center;
+	font-weight:bold;
+}
+table.centerlisttable td{
+	padding:5px 0px 5px 0px;
+	border-bottom:#cccccc solid 1px;
+	border-right:#cccccc solid 1px;
+	vertical-align:middle;
+	word-break:break-all;
+}
+/*For the style of select in staff search page*/
+select#belonging1{
+	width: 143px;
+}
+select#belonging2{
+	width: 143px;
+}
+select#belonging3{
+	width: 143px;
+	height:18px;
+}
+.textarea {
+    width:220px;
+    height:100px;
+}
+table.adminlisttable td.simple {
+	padding: 4px;
+	text-align: center;
+}
+table.adminlisttable td.left {
+    text-align: left;
+	word-wrap: break-word; /* IE */
+	word-break:initial;
+}
+table.adminlisttable td.normal {
+    word-break: break-all !important;
+}
+
+
+/** form control */
+.wines-search-dialog * {
+  box-sizing: border-box;
+}
+
+.wines-search-dialog *:before, .wines-search-dialog *:after {
+  box-sizing: border-box;
+}
+
+.wines-search-dialog .search-dialog-form {
+  border-top: 1px solid #abadb3;
+  border-left: 1px solid #abadb3;
+  border-right: 1px solid #dbdfe6;
+  border-bottom: 1px solid #dbdfe6;
+  border-radius: 2px;
+  padding: 1px 2px;
+  line-height: 1.333333333333333;
+  font-size: 12px;
+  margin: 0;
+}
+
+.wines-search-dialog input[type=text].search-dialog-form {
+  outline: none;
+  height: 23px;
+}
+
+.wines-search-dialog select.search-dialog-form {
+  padding-left: 0;
+  height: 23px;
+}
+
+.wines-search-dialog textarea.search-dialog-form {
+  outline: none;
+}
+
+.ui-dialog div.wines-search-dialog {
+  padding: 5px 20px;
+}
