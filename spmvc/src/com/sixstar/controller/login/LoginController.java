@@ -90,9 +90,6 @@ public class LoginController extends BaseController {
 		PageData data = this.getPageData();
 		String code = data.getString("ValidateCode");
 		String validateCode = (String) request.getSession().getAttribute("validateCode");
-		
-		System.out.println("000   "+code);
-		System.out.println("111   "+validateCode);
 		try {
 			int result = 0;
 			PrintWriter out = response.getWriter();
