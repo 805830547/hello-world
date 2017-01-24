@@ -14,17 +14,15 @@
 
 <style type="text/css">
     .form-signin {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+	    max-width: 330px;
+	    padding: 15px;
+	    margin: 0 auto;
     }
     .container{
         margin-top: 190px;
     }
-    
     .code{
         background-image: url(/spmvc/manage/123.jpg);
-       
         font-style: italic;
         font-size: x-large;
         color: Red;
@@ -40,7 +38,6 @@
         border: 0;
     }
     .Button2{
-        
         color: #fff;
         background-color: #0275d8;
         border-color: #0275d8;
@@ -57,11 +54,10 @@
     }
 </style>
 <script type="text/javascript" language="javascript">
-
 	function updateTips( t ) {
 	    $("#information").html(t);
-	  }
-	
+	}
+
 	function checkLength( o, n, min, max ) {
 	    if ( o.length > max || o.length < min ) {
 	      updateTips(n + "长度必须为3到16位!" );
@@ -69,13 +65,13 @@
 	    } else {
 	      return true;
 	    }
-	  }
+	}
 	  
 	function checkValidateCode(o,n){
 		var result = false;
-		 if(o.length<=0){
+		if(o.length<=0){
 			 updateTips(n + "不能为空!" );
-	     }else{
+	    }else{
 	         $.ajax({
 	             type : "POST",
 	             url : "checkValidateCode.do",
@@ -91,9 +87,9 @@
 	                     updateTips(n + "错误" );
 	                 }
 	             }
-	          });
+	        });
 	    }
-		 return result;
+	    return result;
 	}
 	  
 	function check(){
@@ -118,70 +114,53 @@
 	            	  }
 	              }
 	    	  })
-	    	  
-	    	  
 	      }
-	      
 	}
 
    $(function(){
     	$("#inputUsername").blur(function(){
     		checkLength( $("#inputUsername").val(), "用户名", 3, 16 )
     	});
-    	
-    	 $("#inputPassword").blur(function(){
-    		 checkLength( $("#inputPassword").val(), "密码", 6, 16 );
+    	$("#inputPassword").blur(function(){
+    		checkLength( $("#inputPassword").val(), "密码", 6, 16 );
         });
-        
-    	  $("#input1").blur(function(){
-              checkValidateCode($("#input1").val(),"验证码");
-          });
-       
+    	$("#input1").blur(function(){
+            checkValidateCode($("#input1").val(),"验证码");
+        });
         $("#change1").click(function(){
         	$("#vcode").attr('src', "getValidateCode.do" + "?code=" + Math.random());
         });
-        
-       
     })
-   
 </script>
 </head>
 <body>
 <div style="text-align:right; width: 105px;margin-left: 94%;"><a href="index.do"><h2>返回首页</h2></a></div>
     <div class="container">
-    <section id="content">
-        <form  class="form-signin" id = "form"  method="post">
-            <h2 class ="form-signin-heading">
-                <font>
-                    <font>请登录</font>
-                </font>
-            </h2>
-            
-            <input type="text" name ="username" id="inputUsername" class="form-control" style="width:100%;" placeholder="用户名" required autofocus >
-          
-            <input type="password" name="password" id ="inputPassword" class="form-control" style="width:100%;" placeholder="密码" required>
-            <div>
-             
-            </div>
-            <input type = "text" id ="input1" class="form-control"  style="width:150px; float:left" placeholder="验证码" required/>
-            <img id= "vcode" src="getValidateCode.do" style="width: 80px; height: 47px;" >
-            <!-- <div id="checkCode" class = "unchanged" style="width: 80px ;"></div> -->
-            <input type="button" value="换 一张" id = "change1"
-                    class="btn btn-lg btn-primary btn-block" style="float:right; height: 47px; width: 70px; padding: 0rem 0rem; font-size: inherit;"/>
-            <div style="clear: both"></div>
-            <div id = "information" >
-            
-            </div>
-            <div style="clear: both"></div>
-            <input type="button" class="btn btn-lg btn-primary btn-block" id="submit1" onclick="return check();" value="登录" />
-            <button class="btn btn-lg btn-primary btn-block" type ="reset" >
-                 <font>
-                     <font>重置</font>
-                 </font>
-            </button>
-
-        </form>
-        </section>
+	    <section id="content">
+	        <form  class="form-signin" id = "form"  method="post">
+	            <h2 class ="form-signin-heading">
+	                <font>
+	                    <font>请登录</font>
+	                </font>
+	            </h2>
+	            <input type="text" name ="username" id="inputUsername" class="form-control" style="width:100%;" placeholder="用户名" required autofocus >
+	            <input type="password" name="password" id ="inputPassword" class="form-control" style="width:100%;" placeholder="密码" required>
+	            <input type = "text" id ="input1" class="form-control"  style="width:150px; float:left" placeholder="验证码" required/>
+	            <img id= "vcode" src="getValidateCode.do" style="width: 80px; height: 47px;" >
+	            <!-- <div id="checkCode" class = "unchanged" style="width: 80px ;"></div> -->
+	            <input type="button" value="换 一张" id = "change1"
+	                   class="btn btn-lg btn-primary btn-block" style="float:right; height: 47px; width: 70px; padding: 0rem 0rem; font-size: inherit;"/>
+	            <div style="clear: both"></div>
+	            <div id = "information" ></div>
+	            <div style="clear: both"></div>
+	            <input type="button" class="btn btn-lg btn-primary btn-block" id="submit1" onclick="return check();" value="登录" />
+	            <button class="btn btn-lg btn-primary btn-block" type ="reset">
+	                 <font>
+	                     <font>重置</font>
+	                 </font>
+	            </button>
+	        </form>
+       </section>
     </div>
 </body>
 </html>

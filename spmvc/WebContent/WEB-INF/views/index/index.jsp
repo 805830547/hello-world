@@ -9,35 +9,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/spmvc/manage/css/bootstrap.css">
 <script type="text/javascript" src="/spmvc/manage/js/jquery-3.1.1.min.js"></script>
-<title></title>
-
-
+<title>前台首页</title>
 <style type="text/css">
-.nav-item {
-    display: table-cell;
-}
-.nav-justified {
-    max-height: 52px;
-}
-
-.nav-link {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin-bottom: 0;
-    font-weight: bold;
-    color: #777;
-    text-align: center;
-       background-repeat: repeat-x;
-    border-bottom: 1px solid #d5d5d5;
-}
-
+	.nav-item {
+	    display: table-cell;
+	}
+	.nav-justified {
+	    max-height: 52px;
+	}
+	.nav-link {
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    margin-bottom: 0;
+	    font-weight: bold;
+	    color: #777;
+	    text-align: center;
+        background-repeat: repeat-x;
+	    border-bottom: 1px solid #d5d5d5;
+	}
 </style>    
-<script type="text/javascript" language="javascript">
-
-</script>
 </head>
 <body>
-
 <div class ="container" style="margin-top: 30px;">
         <div class = "masthead">
             <h1 class="text-muted">
@@ -124,7 +116,6 @@
                         <font>校园近况</font>
                     </font> 
                 </h2>
-                
                 <p>
                     <font>
                         <font><a href="#" name ="s">Donec sed的奥迪奥DUI-----------2016.12.11</a></font><br>
@@ -193,9 +184,6 @@
                 </font>
             </p>
         </footer>
-
-
     </div>
-
 </body>
 </html>

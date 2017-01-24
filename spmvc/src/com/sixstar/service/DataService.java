@@ -334,20 +334,14 @@ public class DataService {
           								listJson.add(json);
           							}
 			  			  		}
-		
-		
-		
 		return listJson;
-		
 	}
-	
 	
 	public int dataInsert(DataDto dataDto){
 		int result = 0;
 		result = baseDao.save("test_liu_data", dataDto);
 		return result;
 	}
-	
 	
 	public int dataUpdate(DataDto dataDto){
 		int result = 0;
@@ -356,15 +350,12 @@ public class DataService {
 		return result;
 	}
 	
-	
 	public int dataDelete(DataDto dataDto){
 		int result = 0;
 		String sql = "DELETE FROM test_liu_data WHERE Name= ?";
 		result = baseDao.executeUpdate(sql, dataDto.getName());
 		return result;
-		
 	}
-	
 	
 	
 	public static void main(String[] args) {
