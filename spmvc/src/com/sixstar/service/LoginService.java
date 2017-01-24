@@ -6,15 +6,12 @@ import com.sixstar.dto.LoginDto;
 
 public class LoginService {
 	
-	
 	public LoginDto loginSelect(LoginDto loginDto){
 		BaseDao baseDao = new BaseDao();
 		String sql = "select username, password, name from test_liu_user where username = ? and password = ?";
 		LoginDto lDto = baseDao.getObject(sql, LoginDto.class, loginDto.getUsername(),loginDto.getPassword());
 		return lDto;
 	}
-	
-	
 	
 	
 //	public static void main(String[] args) {

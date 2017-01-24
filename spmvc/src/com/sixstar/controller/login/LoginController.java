@@ -30,7 +30,6 @@ public class LoginController extends BaseController {
 	DataDto dataDto = new DataDto();
 	LoginDto loginDto = new LoginDto();
 	DataService dataService = new DataService();
-
 	
 	@RequestMapping("/index")
 	public IdentifyView index(){
@@ -65,7 +64,6 @@ public class LoginController extends BaseController {
 			out.print(result);
 			out.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -105,8 +103,6 @@ public class LoginController extends BaseController {
 		}
 	}
 	
-	
-	
 	@RequestMapping("/createData")
 	@ResponseBody
 	public void createData(){
@@ -131,8 +127,6 @@ public class LoginController extends BaseController {
 			e.printStackTrace();
 		}
 	}
-	
-	
 	
 	@RequestMapping("/updateData")
 	@ResponseBody
@@ -175,7 +169,6 @@ public class LoginController extends BaseController {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	@RequestMapping("/datalist")
 	@ResponseBody

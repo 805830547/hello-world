@@ -23,79 +23,72 @@
 <script language="javascript" type="text/javascript" src = "/spmvc/manage/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script language="javascript" type="text/javascript" src = "/spmvc/manage/js/test.js"></script>
 <style type="text/css">
-  .ui-state-error { padding: .3em; }
-  .displayed1{
-    display: block;
-  }
-  
-  .toolbar {
-    float:right;
-}
-  
-  
-  
-.main-title {
-    font-size: 25px;
-    color: #4a290c;
-    font-weight: bold;
-    left: 3px;
-    bottom: 3px;
-}
-   .searchTable {
-    padding: 7px;
-    border: 0;
-    box-shadow: 1px 1px 7px #dadada;
-    border-radius: 3px;
-    margin-bottom: 20px;
-    width: 80%;
-}
-.tbody1 {
-    text-align: center;
-    width: 10%;
-    background-color: rgba(221, 221, 221, 0.55);
-}
-.tbody2 {
-    width: 40%;
-}
-.tbody3 {
-    width: 99%;
-    margin: 2px;
-}
- 
- .btn-28 {
-    height: 28px;
-    padding: 3px 8px;
-    border-radius: 3px;
-    outline: none;
-    font-size: 14px;
-    line-height: 1.428571429;
-        color: #333;
-    background-color: #fff;
-    border-color: #ccc;
-}
-.failure{
-    background: #FCE8E5;
-    border: 1px solid;
-    border-color: red;
-    height: 25px;
-}
-
-.ui-dialog-buttonpane button{
-    height: 28px;
-    padding: 0px 8px;
-    border-radius: 3px;
-    outline: none;
-    font-size: 14px;
-    line-height: 1.428571429;
-    color: #333;
-    background-color: #fff;
-    border-color: #ccc;
-    border-width: medium;
-}
-
-
+	.ui-state-error {
+        padding: .3em; 
+    }
+	.displayed1{
+        display: block;
+	}
+	.toolbar {
+	    float:right;
+	}
+	.main-title {
+	    font-size: 25px;
+	    color: #4a290c;
+	    font-weight: bold;
+	    left: 3px;
+	    bottom: 3px;
+	}
+    .searchTable {
+	    padding: 7px;
+	    border: 0;
+	    box-shadow: 1px 1px 7px #dadada;
+	    border-radius: 3px;
+	    margin-bottom: 20px;
+	    width: 80%;
+	}
+	.tbody1 {
+	    text-align: center;
+	    width: 10%;
+	    background-color: rgba(221, 221, 221, 0.55);
+	}
+	.tbody2 {
+	    width: 40%;
+	}
+	.tbody3 {
+	    width: 99%;
+	    margin: 2px;
+	}
+	.btn-28 {
+	    height: 28px;
+	    padding: 3px 8px;
+	    border-radius: 3px;
+	    outline: none;
+	    font-size: 14px;
+	    line-height: 1.428571429;
+	        color: #333;
+	    background-color: #fff;
+	    border-color: #ccc;
+	}
+	.failure{
+	    background: #FCE8E5;
+	    border: 1px solid;
+	    border-color: red;
+	    height: 25px;
+	}
+	.ui-dialog-buttonpane button{
+	    height: 28px;
+	    padding: 0px 8px;
+	    border-radius: 3px;
+	    outline: none;
+	    font-size: 14px;
+	    line-height: 1.428571429;
+	    color: #333;
+	    background-color: #fff;
+	    border-color: #ccc;
+	    border-width: medium;
+	}
 </style>
-
 </head>
 <body>
 <div class="navbar navbar-dark navbar-fixed-top bg-inverse" style="position: fixed;">
@@ -143,7 +136,6 @@
                         </a>
                     </div>
                 </div>
-                
         </div>
         <div class="container-fluid" style="margin-top: 70px;">
                     <div class="row"style="float: left;position: fixed;background; width: 16.666667%; height: 100%;">
@@ -211,7 +203,6 @@
                             
                         </div>
                     </div>
-                    
                     <div class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 main">
                     <div id="msg" style="display: none;" class="failure"></div>
                        <div class="row placeholders" style="border-bottom: 1px solid #af9b8b;">
@@ -244,8 +235,6 @@
                             </div>
                         </div>
                        </div>
-                        
-                        
                         <h2>Table</h2>
 	                   <div id="searchtable" style="display:none;">
 	                     <div class="table table-striped" id="table1">
@@ -279,8 +268,6 @@
 	                   </div>
                     </div>
                 </div>
-
-
 <div id="rank_dialog_form" style="display:none;">
     <form>
     <fieldset>
@@ -302,11 +289,9 @@
         <span class="neededcomment">*</span>
         <label for="Invalid Flag" style=" width: 100%;">Salary</label>
         <input type="text" name="Salary" id="Salary" value="" class="ui-widget-content ui-corner-all" style="height: 30px;" maxlength="53"/>
-       
     </fieldset>
     </form>
 </div>
-
 <div id="update" style="display:none;">
     <form>
     <fieldset>
@@ -328,11 +313,8 @@
         <span class="neededcomment">*</span>
         <label for="Invalid Flag" style=" width: 100%;">Salary</label>
         <input type="text" name="Salary" id="Salary" value="" class="ui-widget-content ui-corner-all" style="height: 30px;" maxlength="53"/>
-       
     </fieldset>
     </form>
 </div>      
-
-        
 </body>
 </html>
