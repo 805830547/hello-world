@@ -1,52 +1,42 @@
 package com.sixstar.mvc.core;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 
  * @ClassName: PageData
  * @Description: 将页面提交的参数自动进行封装,并且能够支持数据往后面的传递
- * @date 2016年11月25日 下午8:53:56
+ * @author Administrator
  *
  */
-public class PageData extends HashMap implements Map {
+public class PageData extends HashMap<Object, Object> {
+
+    private static final long serialVersionUID = 1L;
     // 存储数据
-    private Map map = null;
-    // 请求对象
-    private HttpServletRequest request;
+    private Map<Object, Object> map = null;
 
     public PageData(HttpServletRequest request) {
-        this.request = request;
         // request 里面的请求对象
-        Map properties = request.getParameterMap();
+        Map<String, String[]> properties = request.getParameterMap();
         // 用来给外部使用的map
-        map = new HashMap();
-        Iterator iterator = properties.entrySet().iterator();
-        Map.Entry entry;
+        map = new HashMap<Object, Object>();
         String name = "";
+        String[] valueObjects = null;
 
-        while (iterator.hasNext()) {
-            entry = (Map.Entry) iterator.next();
-            name = (String) entry.getKey();
-            Object valueObject = entry.getValue();
-            if (null == valueObject) {
+        for (Entry<String, String[]> entry : properties.entrySet()) {
+            name = entry.getKey();
+            valueObjects = entry.getValue();
+            if (null == valueObjects) {
                 map.put(name, "");
-            } else if (valueObject instanceof String[]) {
+            } else {
                 String value = "";
-                String[] values = (String[]) valueObject;
-                for (int i = 0; i < values.length; i++) {
-
-                    value += values[i] + ",";
+                for (String valueObject : valueObjects) {
+                    value += valueObject + ",";
                 }
                 map.put(name, value.substring(0, value.length() - 1));
-            } else {
-                map.put(name, valueObject.toString());
             }
-
         }
     }
 
@@ -54,12 +44,11 @@ public class PageData extends HashMap implements Map {
      * 空构造
      */
     public PageData() {
-        map = new HashMap();
+        map = new HashMap<Object, Object>();
     }
 
     @Override
     public Object get(Object key) {
-        Object obj = null;
         return map.get(key);
     }
 
@@ -81,14 +70,17 @@ public class PageData extends HashMap implements Map {
         return map.remove(key);
     }
 
+    @Override
     public void clear() {
         map.clear();
     }
 
+    @Override
     public boolean containsKey(Object key) {
         return map.containsKey(key);
     }
 
+    @Override
     public boolean containsValue(Object value) {
         return map.containsValue(value);
     }

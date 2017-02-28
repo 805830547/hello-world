@@ -2,26 +2,19 @@ package com.sixstar.mvc.util;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
-import com.sixstar.controller.IndexController;
-import com.sixstar.mvc.core.RequestMapping;
-
 /**
- * 
  * @ClassName: ClassScanner
  * @Description: 扫描类 加载进内存
+ * @author Administrator
  *
  */
 public class ClassScanner {
     // 用来存放扫描到的所有类
-    // public Map<String,Class<?>> classes = new HashMap<String,Class<?>>();
     public static Map<String, Class<?>> scannerClass(String packagePath) {
         // 将包名中的.替换成/
         String filePath = packagePath.replace(".", "/");
@@ -37,15 +30,13 @@ public class ClassScanner {
             // 迭代url对象
             while (dirs.hasMoreElements()) {
                 URL url = dirs.nextElement();
-                System.out.println(url);
                 // 通过url 判定此url是文件对象（文件或者文件夹）
                 if (url.getProtocol().equals("file")) {
                     // /D:/workspaceVip/smvc/WebContent/WEB-INF/classes/com/sixstar/controller
                     // 通过url的路径产生实际的文件对象
                     File folder = new File(url.getPath().substring(1));
-                    System.out.println(folder);
                     // 扫描次文件夹下的所有（包括子目录）的所有类
-                    scannFile(folder, rootPath, classes);
+                    scannFile(folder, rootPath + "/", classes);
                 }
             }
         } catch (IOException e) {
@@ -70,7 +61,6 @@ public class ClassScanner {
                     path = path.replace("\\", "/");
                     // 前面计算出的包名+路径类名 得到 包名+类名的完整路径
                     String className = rootPath+ path.substring(path.lastIndexOf("/") + 1, path.indexOf(".class"));
-                    System.out.println(className);
                     className = className.replace('/', '.');
                     try {
                         // 放入HashMap中
@@ -84,6 +74,9 @@ public class ClassScanner {
     }
 
     public static void main(String[] args) {
-    	scannerClass("com.sixstar.controller");
+        Map<String, Class<?>> classes = scannerClass("com.sixstar.controller");
+        for (String className : classes.keySet()) {
+            System.out.println(className);
+        }
     }
 }

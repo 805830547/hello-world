@@ -2,7 +2,6 @@ package com.sixstar.mvc.core;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -22,7 +21,7 @@ import org.apache.log4j.Logger;
 import com.sixstar.mvc.util.ClassScanner;
 
 /**
- * 
+ *
  * @ClassName: DispatcherServlet
  * @Description: 核心控制器
  * @date 2016年11月23日 下午9:06:53
@@ -33,6 +32,7 @@ import com.sixstar.mvc.util.ClassScanner;
 //        @WebInitParam(name = "viewPrefix", value = "/WEB-INF/views/"),
 //        @WebInitParam(name = "viewAfterfix", value = ".jsp") })
 public class DispatcherServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private Logger logger = Logger.getLogger(DispatcherServlet.class);
     private String basePackage;
     private String viewPrefix;
@@ -63,7 +63,7 @@ public class DispatcherServlet extends HttpServlet {
         Iterator<String> itro = cons.keySet().iterator();
         while (itro.hasNext()) {
             String className = itro.next();
-            Class c = cons.get(className);
+            Class<?> c = cons.get(className);
             try {
                 // 将类实例化 并存在控制器集合
                 controllers.put(className, c.newInstance());
@@ -73,20 +73,17 @@ public class DispatcherServlet extends HttpServlet {
                     if (method.getAnnotation(RequestMapping.class) == null) {
                         continue;
                     }
-                    RequestMapping req = (RequestMapping) c.getAnnotation(RequestMapping.class);
+                    RequestMapping req = c.getAnnotation(RequestMapping.class);
                     // 将方法对象放入到map中，类requestMapping+方法的RequestMapping作为key 全路径
                     methods.put(req.value() + method.getAnnotation(RequestMapping.class).value(), method);
                 }
-
             } catch (Exception e) {
                 logger.error("次奥，自定义MVC框架初始化失败！", e);
             }
-
         }
         if (logger.isDebugEnabled()) {
             logger.debug("******嘿嘿，SMVC框架启动初始化完成*****");
         }
-
     }
 
     @Override
@@ -146,7 +143,7 @@ public class DispatcherServlet extends HttpServlet {
                     if (logger.isDebugEnabled()) {
                         logger.debug("转发到：" + contextPath + "/" + resultContent.getUrl());
                     }
-                    // 将请求发送给下一个控制器 
+                    // 将请求发送给下一个控制器
                     request.getRequestDispatcher(contextPath + "/" + resultContent.getUrl()).forward(request, response);
                     break;
                 }
@@ -162,8 +159,8 @@ public class DispatcherServlet extends HttpServlet {
             logger.error("根据路径调用控制器失败！", e);
         }
         /**
-         * 1.根据路径，反射调用对应的控制器方法 
-         * 2.封装请求对象，将参数传递到Controller 
+         * 1.根据路径，反射调用对应的控制器方法
+         * 2.封装请求对象，将参数传递到Controller
          * 3.处理完成后的返回操作
          */
 
